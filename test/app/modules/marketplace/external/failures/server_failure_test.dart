@@ -6,23 +6,23 @@ void main() {
     group('should return null when', () {
       test('not contains "errors" parameter', () {
         final mockResponse = {
-          "data": {"viewer": null}
+          'data': {'viewer': null}
         };
         final response = ServerFailure.fromQueryResponse(mockResponse);
         expect(response, null);
       });
       test('"errors" parameter is null', () {
         final mockResponse = {
-          "data": {"viewer": null},
-          "errors": null
+          'data': {'viewer': null},
+          'errors': null
         };
         final response = ServerFailure.fromQueryResponse(mockResponse);
         expect(response, null);
       });
       test('"errors" parameter is a empty list', () {
         final mockResponse = {
-          "data": {"viewer": null},
-          "errors": []
+          'data': {'viewer': null},
+          'errors': []
         };
         final response = ServerFailure.fromQueryResponse(mockResponse);
         expect(response, null);
@@ -30,25 +30,25 @@ void main() {
     });
     test('should return correct message in ServerFailure when "errors" parameter contains at least 1 message', () {
       final mockResponse = {
-        "data": {"viewer": null},
-        "errors": [
-          {"message": "Unauthorized"}
+        'data': {'viewer': null},
+        'errors': [
+          {'message': 'Unauthorized'}
         ]
       };
       final response = ServerFailure.fromQueryResponse(mockResponse);
       expect(response, isA<ServerFailure>());
-      expect(response?.message, "Unauthorized");
+      expect(response?.message, 'Unauthorized');
     });
     test('should return correct response in ServerFailure when "errors" parameter contains at least 1 message', () {
       final mockResponse = {
-        "data": {"viewer": null},
-        "errors": [
+        'data': {'viewer': null},
+        'errors': [
           {
-            "message": "Unauthorized",
-            "locations": [
-              {"line": 2, "column": 3}
+            'message': 'Unauthorized',
+            'locations': [
+              {'line': 2, 'column': 3}
             ],
-            "path": ["viewer"]
+            'path': ['viewer']
           }
         ]
       };
@@ -60,8 +60,8 @@ void main() {
     group('should return null when', () {
       test('"success" parameter is true and not contains "errorMessage"', () {
         final mockResponse = {
-          "data": {
-            "purchase": {"success": true}
+          'data': {
+            'purchase': {'success': true}
           }
         };
         final response = ServerFailure.fromMutationResponse(mockResponse);
@@ -69,8 +69,8 @@ void main() {
       });
       test('"success" parameter is true and "errorMessage" parameter is null', () {
         final mockResponse = {
-          "data": {
-            "purchase": {"success": true, "errorMessage": null}
+          'data': {
+            'purchase': {'success': true, 'errorMessage': null}
           }
         };
         final response = ServerFailure.fromMutationResponse(mockResponse);
@@ -78,8 +78,8 @@ void main() {
       });
       test('"success" parameter is true and "errorMessage" parameter contains a error message', () {
         final mockResponse = {
-          "data": {
-            "purchase": {"success": true, "errorMessage": "Offer expired"}
+          'data': {
+            'purchase': {'success': true, 'errorMessage': 'Offer expired'}
           }
         };
         final response = ServerFailure.fromMutationResponse(mockResponse);

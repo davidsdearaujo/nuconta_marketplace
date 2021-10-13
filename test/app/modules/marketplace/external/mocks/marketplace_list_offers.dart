@@ -7,23 +7,23 @@ class MarketplaceListOffersMock {
     OfferEntity(id: 'mock-id-3', name: 'mock-name-3', price: 3000, description: 'mock-description-3', imageUrl: 'mock-image-3'),
   ];
   static const successResponse = <String, dynamic>{
-    "data": {
-      "viewer": {
-        "offers": [
+    'data': {
+      'viewer': {
+        'offers': [
           {
-            "id": "mock-id-1",
-            "price": 1000,
-            "product": {"name": "mock-name-1", "description": "mock-description-1", "image": "mock-image-1"}
+            'id': 'mock-id-1',
+            'price': 1000,
+            'product': {'name': 'mock-name-1', 'description': 'mock-description-1', 'image': 'mock-image-1'}
           },
           {
-            "id": "mock-id-2",
-            "price": 2000,
-            "product": {"name": "mock-name-2", "description": "mock-description-2", "image": "mock-image-2"}
+            'id': 'mock-id-2',
+            'price': 2000,
+            'product': {'name': 'mock-name-2', 'description': 'mock-description-2', 'image': 'mock-image-2'}
           },
           {
-            "id": "mock-id-3",
-            "price": 3000,
-            "product": {"name": "mock-name-3", "description": "mock-description-3", "image": "mock-image-3"}
+            'id': 'mock-id-3',
+            'price': 3000,
+            'product': {'name': 'mock-name-3', 'description': 'mock-description-3', 'image': 'mock-image-3'}
           },
         ]
       }
@@ -31,14 +31,14 @@ class MarketplaceListOffersMock {
   };
 
   static const failureResponse = <String, dynamic>{
-    "data": {"viewer": null},
-    "errors": [
+    'data': {'viewer': null},
+    'errors': [
       {
-        "message": "Unauthorized",
-        "locations": [
-          {"line": 2, "column": 3}
+        'message': 'Unauthorized',
+        'locations': [
+          {'line': 2, 'column': 3}
         ],
-        "path": ["viewer"]
+        'path': ['viewer']
       }
     ]
   };

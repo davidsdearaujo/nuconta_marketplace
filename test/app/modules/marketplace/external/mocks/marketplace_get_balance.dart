@@ -1,22 +1,22 @@
 class MarketplaceGetBalanceMock {
   static const successResponse = <String, dynamic>{
-    "data": {
-      "viewer": {"balance": 1000000}
+    'data': {
+      'viewer': {'balance': 1000000}
     }
   };
 
   static const failureResponse = <String, dynamic>{
-    "data": {"viewer": null},
-    "errors": [
+    'data': {'viewer': null},
+    'errors': [
       {
-        "message": "Unauthorized",
-        "locations": [
-          {"line": 2, "column": 3}
+        'message': 'Unauthorized',
+        'locations': [
+          {'line': 2, 'column': 3}
         ],
-        "path": ["viewer"]
+        'path': ['viewer']
       }
     ]
   };
 
-  static const nullResponse = null;  
+  static const nullResponse = null;
 }
