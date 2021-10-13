@@ -1,20 +1,57 @@
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:nuconta_marketplace/app/modules/core/core_module.dart';
 
-class MarketplaceStore extends NotifierStore<Exception, int> {
-  MarketplaceStore() : super(0);
+import '../marketplace_module.dart';
+import 'marketplace_state.dart';
 
-  Future<void> increment() async {
-    setLoading(true);
+export 'marketplace_state.dart';
 
-    await Future.delayed(Duration(seconds: 1));
+class MarketplaceStore extends NotifierStore<Failure, MarketplaceState> {
+  final ListOffersUseCase _listOffersUseCase;
+  final GetBalanceUseCase _getBalanceUseCase;
+  final BuyOfferUseCase _buyOfferUseCase;
+  MarketplaceStore(this._listOffersUseCase, this._getBalanceUseCase, this._buyOfferUseCase) : super(const MarketplaceState.empty());
+  
+  Future<void> refreshAll() => Future.wait([refreshOffers(), refreshBalance()]);
 
-    int value = state + 1;
-    if (value < 5) {
-      update(value);
-    } else {
-      setError(Exception('Error: state not can be > 4'));
+  Future<void> refreshOffers() async {
+    try {
+      setLoading(true);
+      final offers = await _listOffersUseCase.call();
+      update(state.copyWith(offers: offers));
+    } on Failure catch (failure) {
+      setError(failure);
+    } catch (exception, stacktrace) {
+      setError(InternalFailure(exception, stacktrace));
+    } finally {
+      setLoading(false);
     }
+  }
 
-    setLoading(false);
+  Future<void> refreshBalance() async {
+    try {
+      setLoading(true);
+      final balance = await _getBalanceUseCase.call();
+      update(state.copyWith(balance: balance));
+    } on Failure catch (failure) {
+      setError(failure);
+    } catch (exception, stacktrace) {
+      setError(InternalFailure(exception, stacktrace));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  Future<void> buyOffer(String offerId) async {
+    try {
+      setLoading(true);
+      await _buyOfferUseCase.call(offerId);
+    } on Failure catch (failure) {
+      setError(failure);
+    } catch (exception, stacktrace) {
+      setError(InternalFailure(exception, stacktrace));
+    } finally {
+      setLoading(false);
+    }
   }
 }

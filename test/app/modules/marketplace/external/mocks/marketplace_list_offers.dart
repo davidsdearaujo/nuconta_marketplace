@@ -1,10 +1,11 @@
+import 'package:nuconta_marketplace/app/modules/core/core_module.dart';
 import 'package:nuconta_marketplace/app/modules/marketplace/domain/entities/offer_entity.dart';
 
 class MarketplaceListOffersMock {
   static const successEntitiesResponse = [
-    OfferEntity(id: 'mock-id-1', name: 'mock-name-1', price: 1000, description: 'mock-description-1', imageUrl: 'mock-image-1'),
-    OfferEntity(id: 'mock-id-2', name: 'mock-name-2', price: 2000, description: 'mock-description-2', imageUrl: 'mock-image-2'),
-    OfferEntity(id: 'mock-id-3', name: 'mock-name-3', price: 3000, description: 'mock-description-3', imageUrl: 'mock-image-3'),
+    OfferEntity(id: 'mock-id-1', name: 'mock-name-1', price: MoneyType(1000), description: 'mock-description-1', imageUrl: 'mock-image-1'),
+    OfferEntity(id: 'mock-id-2', name: 'mock-name-2', price: MoneyType(2000), description: 'mock-description-2', imageUrl: 'mock-image-2'),
+    OfferEntity(id: 'mock-id-3', name: 'mock-name-3', price: MoneyType(3000), description: 'mock-description-3', imageUrl: 'mock-image-3'),
   ];
   static const successResponse = <String, dynamic>{
     'data': {

@@ -10,20 +10,18 @@ class OfferCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
       elevation: 15,
       shadowColor: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            Expanded(child: Image.network(entity.imageUrl, width: double.infinity)),
+            Expanded(child: Hero(tag: 'offer-image-${entity.id}', child: Image.network(entity.imageUrl, width: double.infinity))),
             const SizedBox(height: 15),
             Text(entity.name, style: FontPalette.current.cardTitle, textAlign: TextAlign.center),
             const SizedBox(height: 5),
-            Text('\$${entity.price}', style: FontPalette.current.cardPrice, textAlign: TextAlign.center),
+            Text('${entity.price}', style: FontPalette.current.cardPrice, textAlign: TextAlign.center),
           ],
         ),
       ),

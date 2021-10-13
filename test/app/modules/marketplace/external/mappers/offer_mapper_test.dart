@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:nuconta_marketplace/app/modules/core/core_module.dart';
 import 'package:nuconta_marketplace/app/modules/marketplace/external/mappers/offer_mapper.dart';
 import 'package:nuconta_marketplace/app/modules/marketplace/marketplace_module.dart';
 
@@ -7,7 +8,8 @@ void main() {
     late Map data;
     setUp(() {
       data = const OfferMapper().toMap(
-        const OfferEntity(id: 'mock-id', name: 'mock-name', price: 50.5, description: 'mock-description', imageUrl: 'mock-image-url'),
+        const OfferEntity(
+            id: 'mock-id', name: 'mock-name', price: MoneyType(50.5), description: 'mock-description', imageUrl: 'mock-image-url'),
       );
     });
 

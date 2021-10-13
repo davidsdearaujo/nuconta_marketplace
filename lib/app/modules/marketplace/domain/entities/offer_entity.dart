@@ -1,7 +1,9 @@
+import 'package:nuconta_marketplace/app/modules/core/core_module.dart';
+
 class OfferEntity {
   final String id;
   final String name;
-  final double price;
+  final MoneyType price;
   final String description;
   final String imageUrl;
   const OfferEntity({
@@ -15,7 +17,7 @@ class OfferEntity {
   OfferEntity copyWith({
     String? id,
     String? name,
-    double? price,
+    MoneyType? price,
     String? description,
     String? imageUrl,
   }) {

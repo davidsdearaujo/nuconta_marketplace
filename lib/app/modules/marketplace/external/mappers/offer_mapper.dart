@@ -4,7 +4,7 @@ import '../../marketplace_module.dart';
 
 class OfferMapper extends Mapper<OfferEntity> {
   const OfferMapper();
-  
+
   @override
   Map toMap(OfferEntity entity) {
     return {
@@ -22,7 +22,7 @@ class OfferMapper extends Mapper<OfferEntity> {
   OfferEntity fromMap(Map map) {
     return OfferEntity(
       id: map['id'],
-      price: double.parse(map['price'].toString()),
+      price: MoneyType(double.parse(map['price'].toString())),
       name: map['product']['name'],
       description: map['product']['description'],
       imageUrl: map['product']['image'],

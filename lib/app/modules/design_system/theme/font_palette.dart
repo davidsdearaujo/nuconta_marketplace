@@ -18,12 +18,12 @@ abstract class FontPalette {
 
 class DefaultFontPalette implements FontPalette {
   @override
-  TextStyle get appbarTitle => GoogleFonts.nunitoSans(fontSize: 25, color: ColorPalette.current.black);
+  TextStyle get appbarTitle => GoogleFonts.nunitoSans(fontSize: 25, color: ColorPalette.current.black, fontWeight: FontWeight.bold);
 
   @override
-  TextStyle get cardPrice => GoogleFonts.nunitoSans(fontSize: 16, color: ColorPalette.current.orange, fontWeight: FontWeight.bold);
+  TextStyle get cardPrice => GoogleFonts.nunitoSans(fontSize: 14, color: ColorPalette.current.orange, fontWeight: FontWeight.bold);
 
   @override
   TextStyle get cardTitle =>
-      GoogleFonts.nunitoSans(fontSize: 15, color: ColorPalette.current.grey, fontWeight: FontWeight.normal, height: 1);
+      GoogleFonts.nunitoSans(fontSize: 12, color: ColorPalette.current.grey, fontWeight: FontWeight.normal, height: 1);
 }

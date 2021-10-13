@@ -9,6 +9,9 @@ export 'clean_architecture/failure.dart';
 export 'clean_architecture/internal_failure.dart';
 export 'clean_architecture/mapper.dart';
 
+//Types
+export 'types/money_type.dart';
+
 class CoreModule extends Module {
   @override
   List<Bind<Object>> binds = [

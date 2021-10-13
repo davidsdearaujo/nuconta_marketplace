@@ -38,11 +38,11 @@ class MarketplaceModule extends Module {
     //Others
     Bind.lazySingleton((i) => const OfferMapper()),
     //Stores
-    Bind.lazySingleton((i) => MarketplaceStore()),
+    Bind.lazySingleton((i) => MarketplaceStore(i(), i(), i())),
   ];
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute(Modular.initialRoute, child: (_, args) => MarketplacePage()),
+    ChildRoute(Modular.initialRoute, child: (_, args) => const MarketplacePage()),
   ];
 }
