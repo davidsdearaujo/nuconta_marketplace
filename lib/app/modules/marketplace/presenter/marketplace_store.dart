@@ -1,7 +1,7 @@
 import 'package:flutter_triple/flutter_triple.dart';
 
-class HomeStore extends NotifierStore<Exception, int> {
-  HomeStore() : super(0);
+class MarketplaceStore extends NotifierStore<Exception, int> {
+  MarketplaceStore() : super(0);
 
   Future<void> increment() async {
     setLoading(true);
