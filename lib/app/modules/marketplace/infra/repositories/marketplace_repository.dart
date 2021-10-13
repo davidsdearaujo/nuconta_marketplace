@@ -5,7 +5,7 @@ class MarketplaceRepository implements IMarketplaceRepository {
   MarketplaceRepository(this.datasource);
 
   @override
-  Future<void> buyOffer(int offerId) {
+  Future<void> buyOffer(String offerId) {
     return datasource.buyOffer(offerId);
   }
 
