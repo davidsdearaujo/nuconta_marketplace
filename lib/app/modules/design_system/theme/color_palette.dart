@@ -29,5 +29,5 @@ class DefaultColorPalette implements ColorPalette {
   Color get purple => const Color(0xFFAAA6D6);
 
   @override
-  Color get white => const Color(0xFFF4F5FC);
+  Color get white => const Color(0xFFFFFFFF);
 }

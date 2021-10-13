@@ -9,15 +9,4 @@ abstract class Failure {
   String toString() {
     return 'Failure(code: $code, message: $message, exception: $exception, stacktrace: $stacktrace)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    return other is Failure && other.code == code;
-  }
-
-  @override
-  int get hashCode {
-    return code.hashCode ^ message.hashCode ^ exception.hashCode ^ stacktrace.hashCode;
-  }
 }

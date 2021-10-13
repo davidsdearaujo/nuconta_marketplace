@@ -3,9 +3,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:nuconta_marketplace/app/modules/core/core_module.dart';
 import 'package:nuconta_marketplace/app/modules/design_system/design_system_module.dart';
-import 'package:nuconta_marketplace/app/modules/design_system/theme/color_palette.dart';
+import 'package:nuconta_marketplace/app/modules/marketplace/presenter/widgets/offer_card_widget.dart';
 
-import 'marketplace_store.dart';
+import '../stores/marketplace_store.dart';
 
 class MarketplacePage extends StatefulWidget {
   final String title;
@@ -23,8 +23,10 @@ class _MarketplacePageState extends State<MarketplacePage> with LoadingMixin, Er
   void initState() {
     super.initState();
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      store.refreshBalance();
-      store.refreshOffers();
+      store.refresh();
+    });
+    Modular.to.addListener(() {
+      print('Current PATH: ${Modular.to.path}');
     });
   }
 
@@ -33,7 +35,6 @@ class _MarketplacePageState extends State<MarketplacePage> with LoadingMixin, Er
     return Scaffold(
       body: ScopedBuilder<MarketplaceStore, Failure, MarketplaceState>(
         store: store,
-        onError: (context, error) => Container(),
         onState: (context, state) {
           if (state.offers == null) return Container();
           return Column(
@@ -68,7 +69,7 @@ class _MarketplacePageState extends State<MarketplacePage> with LoadingMixin, Er
                 child: RefreshIndicator(
                   color: ColorPalette.current.orange,
                   onRefresh: () async {
-                    store.refreshAll();
+                    store.refresh();
                   },
                   child: GridView.builder(
                     padding: const EdgeInsets.all(25),
@@ -80,7 +81,11 @@ class _MarketplacePageState extends State<MarketplacePage> with LoadingMixin, Er
                       crossAxisSpacing: 15,
                     ),
                     itemBuilder: (context, index) {
-                      return OfferCardWidget(state.offers![index]);
+                      final currentOffer = state.offers![index];
+                      return GestureDetector(
+                        onTap: () => Modular.to.pushNamed('./details', arguments: currentOffer, forRoot: true),
+                        child: OfferCardWidget(currentOffer),
+                      );
                     },
                   ),
                 ),

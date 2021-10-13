@@ -7,8 +7,9 @@ import 'domain/use_cases/list_offers.dart';
 import 'external/datasources/marketplace_datasource.dart';
 import 'external/mappers/offer_mapper.dart';
 import 'infra/repositories/marketplace_repository.dart';
-import 'presenter/marketplace_page.dart';
-import 'presenter/marketplace_store.dart';
+import 'presenter/pages/marketplace_page.dart';
+import 'presenter/pages/offer_details_page.dart';
+import 'presenter/stores/marketplace_store.dart';
 
 //Entities
 export 'domain/entities/offer_entity.dart';
@@ -43,6 +44,7 @@ class MarketplaceModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute(Modular.initialRoute, child: (_, args) => const MarketplacePage()),
+    ChildRoute('/', child: (context, args) => const MarketplacePage()),
+    ChildRoute('/details', child: (context, args) => OfferDetailsPage(args.data)),
   ];
 }

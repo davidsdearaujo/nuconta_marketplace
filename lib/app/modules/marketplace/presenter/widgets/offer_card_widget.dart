@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nuconta_marketplace/app/modules/design_system/design_system_module.dart';
 
-import '../../marketplace/marketplace_module.dart';
+import '../../marketplace_module.dart';
 
 class OfferCardWidget extends StatelessWidget {
   final OfferEntity entity;

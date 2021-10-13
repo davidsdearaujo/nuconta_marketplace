@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nuconta_marketplace/app/modules/design_system/theme/color_palette.dart';
+import 'package:nuconta_marketplace/app/modules/design_system/design_system_module.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -28,6 +28,8 @@ class _AppWidgetState extends State<AppWidget> {
       title: 'Flutter Slidy',
       theme: ThemeData(
         primaryColor: ColorPalette.current.orange,
+        scaffoldBackgroundColor: ColorPalette.current.white,
+        cardColor: ColorPalette.current.white,
         colorScheme: ColorScheme.fromSwatch(accentColor: ColorPalette.current.orange),
         textTheme: GoogleFonts.workSansTextTheme(),
       ),

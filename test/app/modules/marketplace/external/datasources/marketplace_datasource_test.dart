@@ -44,7 +44,7 @@ void main() {
           .thenAnswer((invocation) async => MarketplaceBuyOfferMock.failureResponse);
       final future = datasource.buyOffer(mockOfferId);
 
-      expect(future, throwsA(expectedFailure));
+      expect(future, throwsA(isA<ServerFailure>()));
       verify(() => client.mutation(MarketplaceDocuments.buyOffer, variables: {'offerId': mockOfferId})).called(1);
       verifyZeroInteractions(offerMapper);
     });
@@ -56,7 +56,7 @@ void main() {
           .thenAnswer((invocation) async => MarketplaceBuyOfferMock.nullResponse);
       final future = datasource.buyOffer(mockOfferId);
 
-      expect(future, throwsA(expectedFailure));
+      expect(future, throwsA(isA<NullServerResponseFailure>()));
       verify(() => client.mutation(MarketplaceDocuments.buyOffer, variables: {'offerId': mockOfferId})).called(1);
       verifyZeroInteractions(offerMapper);
     });
@@ -64,7 +64,7 @@ void main() {
 
   group('getBalance -', () {
     test('success', () {
-      const double expectedResponse = 1000000;
+      const expectedResponse = MoneyType(1000000);
       when(() => client.query(MarketplaceDocuments.getBalance)).thenAnswer((invocation) async => MarketplaceGetBalanceMock.successResponse);
       final future = datasource.getBalance();
 
@@ -78,7 +78,7 @@ void main() {
       when(() => client.query(MarketplaceDocuments.getBalance)).thenAnswer((invocation) async => MarketplaceGetBalanceMock.failureResponse);
       final future = datasource.getBalance();
 
-      expect(future, throwsA(expectedFailure));
+      expect(future, throwsA(isA<ServerFailure>()));
       verify(() => client.query(MarketplaceDocuments.getBalance)).called(1);
       verifyZeroInteractions(offerMapper);
     });
@@ -88,7 +88,7 @@ void main() {
       when(() => client.query(MarketplaceDocuments.getBalance)).thenAnswer((invocation) async => MarketplaceGetBalanceMock.nullResponse);
       final future = datasource.getBalance();
 
-      expect(future, throwsA(expectedFailure));
+      expect(future, throwsA(isA<NullServerResponseFailure>()));
       verify(() => client.query(MarketplaceDocuments.getBalance)).called(1);
       verifyZeroInteractions(offerMapper);
     });
@@ -109,21 +109,19 @@ void main() {
     });
 
     test('server failure', () {
-      final expectedFailure = ServerFailure.fromQueryResponse(MarketplaceListOffersMock.failureResponse);
       when(() => client.query(MarketplaceDocuments.listOffers)).thenAnswer((invocation) async => MarketplaceListOffersMock.failureResponse);
       final future = datasource.listOffers();
 
-      expect(future, throwsA(expectedFailure));
+      expect(future, throwsA(isA<ServerFailure>()));
       verify(() => client.query(MarketplaceDocuments.listOffers)).called(1);
       verifyZeroInteractions(offerMapper);
     });
 
     test('null server response failure', () {
-      final expectedFailure = NullServerResponseFailure();
       when(() => client.query(MarketplaceDocuments.listOffers)).thenAnswer((invocation) async => MarketplaceListOffersMock.nullResponse);
       final future = datasource.listOffers();
 
-      expect(future, throwsA(expectedFailure));
+      expect(future, throwsA(isA<NullServerResponseFailure>()));
       verify(() => client.query(MarketplaceDocuments.listOffers)).called(1);
       verifyZeroInteractions(offerMapper);
     });

@@ -30,7 +30,7 @@ void main() {
     });
 
     test('id', () => expect(data.id, 'mock-id'));
-    test('price', () => expect(data.price, 5000.4));
+    test('price', () => expect(data.price.value, 5000.4));
     test('name', () => expect(data.name, 'mock-name'));
     test('description', () => expect(data.description, 'mock-description'));
     test('image', () => expect(data.imageUrl, 'mock-image-url'));

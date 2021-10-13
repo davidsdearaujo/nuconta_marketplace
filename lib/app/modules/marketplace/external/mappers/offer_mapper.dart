@@ -9,7 +9,7 @@ class OfferMapper extends Mapper<OfferEntity> {
   Map toMap(OfferEntity entity) {
     return {
       'id': entity.id,
-      'price': entity.price,
+      'price': entity.price.value,
       'product': {
         'name': entity.name,
         'description': entity.description,

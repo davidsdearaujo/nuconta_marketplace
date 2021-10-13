@@ -1,6 +1,6 @@
 import 'package:nuconta_marketplace/app/modules/core/core_module.dart';
 
-import '../marketplace_module.dart';
+import '../../marketplace_module.dart';
 
 class MarketplaceState {
   final List<OfferEntity>? offers;
