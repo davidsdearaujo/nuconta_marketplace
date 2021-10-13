@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-import 'home_store.dart';
+import 'marketplace_store.dart';
 
-class HomePage extends StatefulWidget {
+class MarketplacePage extends StatefulWidget {
   final String title;
-  const HomePage({Key? key, this.title = "Home"}) : super(key: key);
+  const MarketplacePage({Key? key, this.title = "Home"}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _MarketplacePageState createState() => _MarketplacePageState();
 }
 
-class _HomePageState extends ModularState<HomePage, HomeStore> {
+class _MarketplacePageState extends ModularState<MarketplacePage, MarketplaceStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Counter'),
       ),
-      body: ScopedBuilder<HomeStore, Exception, int>(
+      body: ScopedBuilder<MarketplaceStore, Exception, int>(
         store: store,
         onState: (_, counter) {
           return Padding(
