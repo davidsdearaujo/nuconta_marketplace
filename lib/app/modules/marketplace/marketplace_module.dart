@@ -5,8 +5,10 @@ import 'presenter/marketplace_store.dart';
 
 //Entities
 export 'domain/entities/offer_entity.dart';
-//Repositories
+//Repositorie interfaces
 export 'domain/repositories/marketplace_repository.dart';
+//Datasource interfaces
+export 'infra/datasources/marketplace_datasource.dart';
 //Use cases
 export 'domain/use_cases/buy_offer.dart';
 export 'domain/use_cases/get_balance.dart';
