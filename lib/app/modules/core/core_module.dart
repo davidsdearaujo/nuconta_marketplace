@@ -1,11 +1,12 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:hasura_connect/hasura_connect.dart';
 
-//Clean Architecture exports
-export 'clean_architecture/failure.dart';
-
 //Services exports
 export 'package:hasura_connect/hasura_connect.dart';
+
+//Clean Architecture exports
+export 'clean_architecture/failure.dart';
+export 'clean_architecture/mapper.dart';
 
 class CoreModule extends Module {
   @override

@@ -1,56 +1,36 @@
-import 'dart:convert';
-
 class OfferEntity {
-  final int id;
+  final String id;
   final String name;
+  final double price;
   final String description;
   final String imageUrl;
-  OfferEntity({
+  const OfferEntity({
     required this.id,
     required this.name,
+    required this.price,
     required this.description,
     required this.imageUrl,
   });
 
   OfferEntity copyWith({
-    int? id,
+    String? id,
     String? name,
+    double? price,
     String? description,
     String? imageUrl,
   }) {
     return OfferEntity(
       id: id ?? this.id,
       name: name ?? this.name,
+      price: price ?? this.price,
       description: description ?? this.description,
       imageUrl: imageUrl ?? this.imageUrl,
     );
   }
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'description': description,
-      'imageUrl': imageUrl,
-    };
-  }
-
-  factory OfferEntity.fromMap(Map<String, dynamic> map) {
-    return OfferEntity(
-      id: map['id'],
-      name: map['name'],
-      description: map['description'],
-      imageUrl: map['imageUrl'],
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory OfferEntity.fromJson(String source) => OfferEntity.fromMap(json.decode(source));
-
   @override
   String toString() {
-    return 'OfferEntity(id: $id, name: $name, description: $description, imageUrl: $imageUrl)';
+    return 'OfferEntity(id: $id, name: $name, price: $price, description: $description, imageUrl: $imageUrl)';
   }
 
   @override
@@ -61,6 +41,6 @@ class OfferEntity {
 
   @override
   int get hashCode {
-    return id.hashCode ^ name.hashCode ^ description.hashCode ^ imageUrl.hashCode;
+    return id.hashCode ^ name.hashCode ^ price.hashCode ^ description.hashCode ^ imageUrl.hashCode;
   }
 }
