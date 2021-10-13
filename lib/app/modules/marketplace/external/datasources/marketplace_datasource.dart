@@ -18,10 +18,10 @@ class MarketplaceDatasource implements IMarketplaceDatasource {
   }
 
   @override
-  Future<double> getBalance() async {
+  Future<MoneyType> getBalance() async {
     final response = await _client.query(MarketplaceDocuments.getBalance);
     _catchQueryError(response);
-    return double.parse(response['data']['viewer']['balance'].toString());
+    return MoneyType(double.parse(response['data']['viewer']['balance'].toString()));
   }
 
   @override

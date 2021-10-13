@@ -1,3 +1,5 @@
+import 'package:nuconta_marketplace/app/modules/core/core_module.dart';
+
 import '../../marketplace_module.dart';
 
 class MarketplaceRepository implements IMarketplaceRepository {
@@ -10,7 +12,7 @@ class MarketplaceRepository implements IMarketplaceRepository {
   }
 
   @override
-  Future<double> getBalance() {
+  Future<MoneyType> getBalance() {
     return datasource.getBalance();
   }
 
