@@ -39,7 +39,7 @@ void main() {
 
     test('server failure', () {
       const mockOfferId = 'mock-offer-id';
-      final expectedFailure = ServerFailure.fromMutationResponse(MarketplaceBuyOfferMock.failureResponse['data']['purchase']);
+      // final expectedFailure = ServerFailure.fromMutationResponse(MarketplaceBuyOfferMock.failureResponse['data']['purchase']);
       when(() => client.mutation(MarketplaceDocuments.buyOffer, variables: {'offerId': mockOfferId}))
           .thenAnswer((invocation) async => MarketplaceBuyOfferMock.failureResponse);
       final future = datasource.buyOffer(mockOfferId);
@@ -51,7 +51,7 @@ void main() {
 
     test('null server response failure', () {
       const mockOfferId = 'mock-offer-id';
-      final expectedFailure = NullServerResponseFailure();
+      // final expectedFailure = NullServerResponseFailure();
       when(() => client.mutation(MarketplaceDocuments.buyOffer, variables: {'offerId': mockOfferId}))
           .thenAnswer((invocation) async => MarketplaceBuyOfferMock.nullResponse);
       final future = datasource.buyOffer(mockOfferId);
@@ -74,7 +74,7 @@ void main() {
     });
 
     test('server failure', () {
-      final expectedFailure = ServerFailure.fromQueryResponse(MarketplaceGetBalanceMock.failureResponse);
+      // final expectedFailure = ServerFailure.fromQueryResponse(MarketplaceGetBalanceMock.failureResponse);
       when(() => client.query(MarketplaceDocuments.getBalance)).thenAnswer((invocation) async => MarketplaceGetBalanceMock.failureResponse);
       final future = datasource.getBalance();
 
@@ -84,7 +84,7 @@ void main() {
     });
 
     test('null server response failure', () {
-      final expectedFailure = NullServerResponseFailure();
+      // final expectedFailure = NullServerResponseFailure();
       when(() => client.query(MarketplaceDocuments.getBalance)).thenAnswer((invocation) async => MarketplaceGetBalanceMock.nullResponse);
       final future = datasource.getBalance();
 

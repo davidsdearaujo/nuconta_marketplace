@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:nuconta_marketplace/app/modules/core/core_module.dart';
-import 'package:nuconta_marketplace/app/modules/design_system/theme/color_palette.dart';
 
 import '../../marketplace_module.dart';
 import 'marketplace_state.dart';

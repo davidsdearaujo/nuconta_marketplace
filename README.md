@@ -1,10 +1,35 @@
-# nuconta_marketplace
+# NuConta Marketplace
 
-A new Flutter project.
+https://user-images.githubusercontent.com/16373553/137410341-936310d2-d876-4284-843d-7ff584ae6093.mp4
 
-## Getting Started
+Layout based in [this drible project](https://dribbble.com/shots/15544535-Sneakers-Shopping-App)
 
-This project is a starting point for a Flutter application.
+## A Flutter project made using:
+- **Clean Dart** that follows all the **Clean Architecture** guidelines:
+https://github.com/Flutterando/Clean-Dart/blob/cce751ea0a22a796c3559ba458f50d9a0552c4ef/README_en.md
+
+- **Flutter Tiple** pattern for state management:  
+https://pub.dev/packages/flutter_triple
+https://triple.flutterando.com.br/docs/getting-started/using-flutter-triple/
+
+- **Flutter Modular** for dependency injection and routes:
+https://pub.dev/packages/flutter_modular
+https://modular.flutterando.com.br/
+
+## About the modules
+This project has been developed using module structure, to allow the separation of each module in packages, facilitating the maintenance end cohesion of each module and domain.
+
+ - **CoreModule**: responsible by providing a basic resources to all modules;
+ - **DesignSystemModule**: responsible by providing a common theme resources like colors, fonts and widgets to all modules;
+ - **MarketplaceModule**: responsible by marketplace scope;
+
+## To run te project:
+```
+flutter pub get
+flutter run
+```
+
+## If is your first Flutter Project
 
 A few resources to get you started if this is your first Flutter project:
 
