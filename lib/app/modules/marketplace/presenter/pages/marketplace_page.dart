@@ -25,9 +25,6 @@ class _MarketplacePageState extends State<MarketplacePage> with LoadingMixin, Er
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       store.refresh();
     });
-    Modular.to.addListener(() {
-      print('Current PATH: ${Modular.to.path}');
-    });
   }
 
   @override
