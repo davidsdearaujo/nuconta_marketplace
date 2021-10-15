@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nuconta_marketplace">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="nuconta_marketplace"
+        android:label="NuConta Marketplace"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
