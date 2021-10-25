@@ -5,16 +5,13 @@ https://user-images.githubusercontent.com/16373553/137410341-936310d2-d876-4284-
 Layout based in [this drible project](https://dribbble.com/shots/15544535-Sneakers-Shopping-App)
 
 ## A Flutter project made using:
-- **Clean Dart** that follows all the **Clean Architecture** guidelines:
-https://github.com/Flutterando/Clean-Dart/blob/cce751ea0a22a796c3559ba458f50d9a0552c4ef/README_en.md
+- **Clean Dart** that follows all the **Clean Architecture** guidelines [[doc]](https://github.com/Flutterando/Clean-Dart/blob/cce751ea0a22a796c3559ba458f50d9a0552c4ef/README_en.md)
 
-- **Flutter Tiple** pattern for state management:  
-https://pub.dev/packages/flutter_triple
-https://triple.flutterando.com.br/docs/getting-started/using-flutter-triple/
+- **Flutter Tiple** pattern for state management [[pub.dev]](https://pub.dev/packages/flutter_triple) [[doc]](https://triple.flutterando.com.br/docs/getting-started/using-flutter-triple/)
 
-- **Flutter Modular** for dependency injection and routes:
-https://pub.dev/packages/flutter_modular
-https://modular.flutterando.com.br/
+- **Flutter Modular** for dependency injection and routes [[pub.dev]](https://pub.dev/packages/flutter_modular) [[doc]](https://modular.flutterando.com.br/)
+
+- **Hasura Connect** for GraphQL abstraction [[pub.dev]](https://pub.dev/packages/hasura_connect)
 
 ## About the modules
 This project has been developed using module structure, to allow the separation of each module in packages, facilitating the maintenance end cohesion of each module and domain.
