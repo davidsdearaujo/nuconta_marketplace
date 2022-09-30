@@ -20,7 +20,7 @@ This project has been developed using module structure, to allow the separation 
  - **DesignSystemModule**: responsible by providing a common theme resources like colors, fonts and widgets to all modules;
  - **MarketplaceModule**: responsible by marketplace scope;
 
-## To run te project:
+## To run the project:
 ```
 flutter pub get
 flutter run
