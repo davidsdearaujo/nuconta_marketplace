@@ -26,7 +26,7 @@ flutter pub get
 flutter run
 ```
 
-## If is your first Flutter Project
+## If it's your first Flutter Project
 
 A few resources to get you started if this is your first Flutter project:
 
